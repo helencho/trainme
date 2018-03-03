@@ -55,8 +55,8 @@ class Home extends Component {
                     :
                     <div className='home-search-container'>
                         <form onSubmit={this.handleSubmit}>
-                            <input type='text' name='keyword' value={keyword} placeholder='Business, design, health' onChange={this.handleInput} />
-                            <input type='text' name='borough' value={borough} placeholder='Brooklyn' onChange={this.handleInput} />
+                            <input type='text' name='keyword' value={keyword} placeholder='Keywords (ex. business, design, health)' onChange={this.handleInput} />
+                            <input type='text' name='borough' value={borough} placeholder='Borough (ex. Brooklyn)' onChange={this.handleInput} />
                             <input type='submit' value='Search' />
                         </form>
                     </div>
