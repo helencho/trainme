@@ -2,28 +2,6 @@ import React, { Component } from 'react'
 import Results from './Results'
 import axios from 'axios'
 
-class Search extends Component {
-    constructor() {
-        super()
-        this.state = {
-            keyword: '',
-            borough: ''
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <form>
-                    <input type='text' placeholder='health aide' />
-                    <input type='text' placeholder='Brooklyn' />
-                    <input type='submit' value='Search' />
-                </form>
-            </div>
-        )
-    }
-}
-
 
 
 class Home extends Component {
@@ -31,6 +9,8 @@ class Home extends Component {
         super()
         this.state = {
             courses: '',
+            keyword: '',
+            borough: '',
             submitted: false
         }
     }
@@ -53,16 +33,38 @@ class Home extends Component {
             })
     }
 
+
+    handleInput = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        this.setState({
+            submitted: true
+        })
+    }
+
+
     render() {
-        const { courses, submitted } = this.state
+        const { courses, keyword, borough, submitted } = this.state
         console.log(this.state)
 
         return (
             <div>
                 {submitted ?
-                    <Results />
+                    <Results courses={courses} />
                     :
-                    <Search />}
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type='text' name='keyword' value={keyword} placeholder='health aide' onChange={this.handleInput} />
+                            <input type='text' name='borough' value={borough} placeholder='Brooklyn' onChange={this.handleInput} />
+                            <input type='submit' value='Search' />
+                        </form>
+                    </div>
+                }
             </div>
         )
     }
