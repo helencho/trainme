@@ -12,6 +12,14 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 6px;
+    transition: 0.3s all;
+    margin-bottom: 2.2%;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    transition: 0.3s all;
 }
 
 .navbar a,
@@ -21,6 +29,23 @@
 }
 
 .navbar a:last-child {
-    padding-right: 26px;
-    /* font-size: 14px; */
+    padding-right: 5.6%;
+    transition: 0.2s color;
+}
+
+.navbar a:last-child:hover {
+    color: rgb(0,252,42);
+}
+
+@media screen and (max-width: 420px) {
+    .logo {
+        height: 60px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .navbar {
+        height: 60px;
+    }
 }
