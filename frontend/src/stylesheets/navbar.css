@@ -6,15 +6,19 @@
 
 .navbar {
     background-color: #1D2266;
-    height: 80px;
+    height: 100px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('https://i.imgur.com/FXL7KnU.png');
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .navbar a,
 .navbar a:visited {
     color: white;
     text-decoration: none;
+    display: none;
 }
