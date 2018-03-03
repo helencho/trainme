@@ -8,9 +8,22 @@ class Home extends Component {
         super()
         this.state = {
             keyword: '',
-            borough: '',
-            submitted: false
+            borough: ''
         }
+    }
+
+    componentDidMount() {
+        this.setState({
+            submitted: this.props.submitted 
+        })
+    }
+
+    componentWillReceiveProps() {
+        this.setState({
+            keyword: '',
+            borough: '',
+            submitted: this.props.submitted
+        })
     }
 
     // Handle search form input 
