@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import Results from './Results'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 
 
 class Home extends Component {
     constructor() {
         super()
         this.state = {
-            courses: '',
+            courses: [],
             keyword: '',
             borough: '',
             submitted: false
@@ -33,7 +33,6 @@ class Home extends Component {
             })
     }
 
-
     handleInput = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -52,10 +51,14 @@ class Home extends Component {
         const { courses, keyword, borough, submitted } = this.state
         console.log(this.state)
 
+        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword) || course.course_name && course.course_name.toLowerCase().includes(keyword))
+        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough))
+        console.log(results)
+
         return (
             <div>
                 {submitted ?
-                    <Results courses={courses} />
+                    <Results courses={courses} keyword={keyword} borough={borough} />
                     :
                     <div>
                         <form onSubmit={this.handleSubmit}>
