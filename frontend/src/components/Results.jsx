@@ -61,7 +61,6 @@ class Results extends Component {
 
     randomMessage = () => {
         let index = Math.floor(Math.random() * this.state.messages.length)
-        console.log(index)
         return this.state.messages[index]
     }
 
@@ -96,7 +95,7 @@ class Results extends Component {
                                 </div>
                             ))
                             :
-                            this.randomMessage()}
+                            <p className='results-message'>this.randomMessage()</p>}
                     </div>
                 }
             </div>
