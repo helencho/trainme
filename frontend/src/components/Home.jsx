@@ -52,7 +52,7 @@ class Home extends Component {
                             <Link to='/'>TrainMe</Link>
                         </nav>
                         <form onSubmit={this.handleSubmit}>
-                            <input type='text' name='keyword' value={keyword} placeholder='health aide' onChange={this.handleInput} />
+                            <input type='text' name='keyword' value={keyword} placeholder='Business, design, health' onChange={this.handleInput} />
                             <input type='text' name='borough' value={borough} placeholder='Brooklyn' onChange={this.handleInput} />
                             <input type='submit' value='Search' />
                         </form>
