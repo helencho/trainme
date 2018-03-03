@@ -2,5 +2,15 @@ body {
     font-family: 'Actor', sans-serif;
     font-size: 30px;
     color:black;
-    
+    text-align: center;
 }
+html {
+    padding:0px;
+    margin:0px;
+    background: linear-gradient(to right,  #11e8bb 0%,#8200c9 100%);
+  }
+  #canvas {
+    width: 304px;
+    height: 304px;
+    display: block;
+  } 
