@@ -1,0 +1,16 @@
+/*--------------------------------------*/
+/*             Results Page             */
+/*--------------------------------------*/
+
+.results-container {
+    background-color: red;
+}
+
+.single-result-container {
+    background-color: blue;
+}
+
+.single-result-container p {
+    padding: 0;
+    margin: 0;
+}
