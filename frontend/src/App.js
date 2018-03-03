@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Results from './components/Results';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import './stylesheets/navbar.css';
 
 class App extends Component {
   constructor() {

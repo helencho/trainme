@@ -95,7 +95,7 @@ class Results extends Component {
                                 </div>
                             ))
                             :
-                            <p className='results-message'>this.randomMessage()</p>}
+                            <p className='results-message'>{this.randomMessage()}</p>}
                     </div>
                 }
             </div>
