@@ -12,7 +12,8 @@ class Results extends Component {
             keyword: '',
             borough: '',
             course: [],
-            openDetail: false
+            openDetail: false,
+            messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
         }
     }
 
@@ -58,6 +59,12 @@ class Results extends Component {
         })
     }
 
+    randomMessage = () => {
+        let index = Math.floor(Math.random() * this.state.messages.length)
+        console.log(index)
+        return this.state.messages[index]
+    }
+
     render() {
         const { courses, keyword, borough, course, openDetail } = this.state
         console.log(this.state)
@@ -80,13 +87,16 @@ class Results extends Component {
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </form>
-                        {results.map(course => (
-                            <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
-                                <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
-                                <p className='result-org'>{course.organization_name}</p>
-                                <p className='result-city'>{course.city}</p>
-                            </div>
-                        ))}
+                        {results.length > 0 ?
+                            results.map(course => (
+                                <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
+                                    <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
+                                    <p className='result-org'>{course.organization_name}</p>
+                                    <p className='result-city'>{course.city}</p>
+                                </div>
+                            ))
+                            :
+                            this.randomMessage()}
                     </div>
                 }
             </div>
