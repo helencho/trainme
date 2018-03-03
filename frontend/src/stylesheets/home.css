@@ -1,17 +1,19 @@
 body {
     font-family: 'Actor', sans-serif;
     font-size: 30px;
-    color:black;
+    color: black;
     text-align: center;
     /* background-image: url('https://www.ashfieldandmansfieldconservatives.org.uk/sites/www.ashfieldandmansfieldconservatives.org.uk/files/2016-11/DIFF-HAPPY-JOBS-940.png');
     background-position: fixed;
     background-repeat: no-repeat; */
-}
-h1{
-    font-size: 75px;
 
 }
-.home-search-container form{
+
+h1 {
+    font-size: 75px;
+}
+
+.home-search-container form {
     display: flex;
     flex-direction: column;
     float: center;
@@ -19,21 +21,23 @@ h1{
     height: 450px;
     margin: auto;
     position: relative;
-    
 }
-.home-search-container input[type="text"]{
+
+.home-search-container input[type="text"],
+.home-search-container input[type="submit"] {
+    font-family: 'Actor', sans-serif;
     text-align: center;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    font-size:35px; 
-    border: 1.5px solid blue;
+    font-size: 20px; 
+    border: 1.5px solid #1D2266;
     border-radius: 4px;
-    /* border-radius: 30px; */
-    
+    transition: 0.2s all;
 }
-.home-search-container input[type="submit"]{
+
+/* .home-search-container input[type="submit"] {
     text-align: center;
     width: 100%;
     padding: 12px 20px;
@@ -42,19 +46,30 @@ h1{
     font-size:20px; 
     border: 1.5px solid black;
     border-radius: 4px;
-    /* border-radius: 30px; */
-}
-.home-search-container input[type="text"]:focus{
+    border-radius: 30px; 
+} */
+
+.home-search-container input[type="text"]:focus,
+.home-search-container input[type="submit"]:focus {
     background-color: yellow;
     outline: none;
 }
-.home-search-container input[type="submit"]:focus{
+
+/* .home-search-container input[type="submit"]:focus{
     outline: none;
-}
-.home-search-container input[type="text"]::placeholder{
-    font-size:20px;
-}
-.home-search-container input[type="submit"]::placeholder{
-    font-size:20px;
+} */
+
+.home-search-container input[type="text"]::placeholder,
+.home-search-container input[type="submit"]::placeholder {
+    font-family: 'Actor', sans-serif;
+    font-size: 20px;
 }
 
+/* .home-search-container input[type="submit"]::placeholder{
+    font-size:20px;
+} */
+
+.home-search-container input[type="submit"]:hover {
+    background-color: #1D2266;
+    color: white;
+}
