@@ -5,7 +5,6 @@ import Results from './components/Results';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
-
 class App extends Component {
   constructor() {
     super()
