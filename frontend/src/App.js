@@ -34,9 +34,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <Link to='/'>TrainMe</Link>
-        </nav>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
           <Route path='/detail' render={this.renderDetail} />

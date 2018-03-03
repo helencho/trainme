@@ -62,14 +62,17 @@ class Results extends Component {
                     :
                     <div>
                         <nav>
+                            <Link to='/'>TrainMe</Link>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </nav>
                         <div>
-                            {results.map(course => <div>
-                                <p onClick={() => this.handleClick(course)}>{course.course_name}</p>
-                                <p>{course.organization_name}</p>
-                            </div>)}
+                            {results.map(course => (
+                                <div>
+                                    <p onClick={() => this.handleClick(course)}>{course.course_name}</p>
+                                    <p>{course.organization_name}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 }
