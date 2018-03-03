@@ -46,6 +46,7 @@
     align-items: center;
     text-align: left;
     padding-bottom: 4%;
+    width: 100%;
 }
 
 .single-result-container {
@@ -106,5 +107,6 @@
 
     .results-container input[type='text'] {
         width: 95%;
+        margin-bottom: 3%;
     }
 }
