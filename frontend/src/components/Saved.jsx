@@ -4,7 +4,7 @@ import axios from 'axios'
 import Detail from './Detail'
 import '../stylesheets/results.css'
 
-class Results extends Component {
+class Saved extends Component {
     constructor() {
         super()
         this.state = {
@@ -12,8 +12,7 @@ class Results extends Component {
             keyword: '',
             borough: '',
             course: [],
-            openDetail: false,
-            messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
+            openDetail: false
         }
     }
 
@@ -59,43 +58,29 @@ class Results extends Component {
         })
     }
 
-    randomMessage = () => {
-        let index = Math.floor(Math.random() * this.state.messages.length)
-        return this.state.messages[index]
-    }
-
     render() {
         const { courses, keyword, borough, course, openDetail } = this.state
         console.log(this.state)
 
-        // Filter through courses by course description, course name, keyword 
-        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword.toLowerCase())
-            || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
-            || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
-
-        // Filter through the keyword search with borough 
-        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
+        const results = JSON.parse(window.localStorage.getItem('courses')) || [];
 
         return (
             <div>
                 {openDetail ?
-                    <Detail course={course} handleBack={this.handleBack} />
+                    <Detail course={course} />
                     :
                     <div className='results-container'>
                         <form>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </form>
-                        {results.length > 0 ?
-                            results.map(course => (
-                                <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
-                                    <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
-                                    <p className='result-org'>{course.organization_name}</p>
-                                    <p className='result-city'>{course.city}</p>
-                                </div>
-                            ))
-                            :
-                            <p className='results-message'>{this.randomMessage()}</p>}
+                        {results.map(course => (
+                            <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
+                                <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
+                                <p className='result-org'>{course.organization_name}</p>
+                                <p className='result-city'>{course.city}</p>
+                            </div>
+                        ))}
                     </div>
                 }
             </div>
@@ -103,4 +88,4 @@ class Results extends Component {
     }
 }
 
-export default Results 
+export default Saved 

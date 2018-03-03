@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Detail from './components/Detail';
 import Home from './components/Home';
 import Results from './components/Results';
+import Saved from './components/Saved';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import './stylesheets/navbar.css';
 
 class App extends Component {
   constructor() {
@@ -44,11 +46,12 @@ class App extends Component {
     return (
       <div>
         <nav className='navbar'>
-          <Link to='/' onClick={this.handleLogoClick}>TrainMe</Link>
+          <Link to='/' onClick={this.handleLogoClick}><img src='https://i.imgur.com/FXL7KnU.png' alt='logo' /></Link>
+          <Link to='/saved'><i class="far fa-bookmark"></i></Link>
         </nav>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
-          <Route path='/detail' render={this.renderDetail} />
+          <Route path='/saved' component={Saved} />
         </Switch>
       </div>
     );

@@ -1,0 +1,26 @@
+/*--------------------------------------*/
+/*             Navigation Bar           */
+/*--------------------------------------*/
+/* phthalo blue: #1D2266 */
+
+
+.navbar {
+    background-color: #1D2266;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 6px;
+}
+
+.navbar a,
+.navbar a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:last-child {
+    padding-right: 26px;
+    /* font-size: 14px; */
+}
