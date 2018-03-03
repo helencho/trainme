@@ -59,6 +59,7 @@ class Detail extends Component {
                 <div class='' >Prerequisites: {course.prerequisites || 'N/A'}</div>
 
                 <button onClick={this.saveCourse}>Save</button>
+                <button onClick={this.props.handleBack}>Back</button>
             </div>
         )
     }
