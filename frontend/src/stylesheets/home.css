@@ -4,13 +4,307 @@ body {
     color:black;
     text-align: center;
 }
-html {
-    padding:0px;
-    margin:0px;
-    background: linear-gradient(to right,  #11e8bb 0%,#8200c9 100%);
+$baseColorR: random(200);
+$baseColorG: random(200);
+$baseColorB: random(200);
+$bodyColor: linear-gradient(
+  45deg,
+  rgba($baseColorR, $baseColorG, $baseColorB, 1) 0%,
+  rgba($baseColorR + 50, $baseColorG + 50, $baseColorB + 50, 1) 100%
+); 
+$wallColor: linear-gradient(
+  90deg,
+  rgba(100, 100, 100, 1) 0%,
+  rgba(150, 150, 150, 1) 100%
+); 
+$windowColor: rgba(0, 100, 255, 0.3);
+$tireColor: rgba(0, 0, 0, 1);
+$wheelColor: rgba(100, 100, 100, 1);
+$shadowColor: rgba(170, 170, 170, 1);
+$lightColor: rgba(random(100) + 155, random(100) + 155, random(100) + 155, 1);
+
+body {
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  font-family: 'Anton', sans-serif;
+  justify-content: center;
+  align-items: center;
+  perspective: 600px;
+}
+div {
+  position: absolute;
+  transform-style: preserve-3d;
+  background: $bodyColor;
+  box-sizing: border-box;
+  will-change: transform;
+}
+.window {
+  background: $windowColor;
+  border-left: 10px solid rgba($baseColorR, $baseColorG, $baseColorB, 1);
+  border-right: 10px solid rgba($baseColorR + 10, $baseColorG + 10, $baseColorB + 10, 1);
+}
+.rail {
+  width: 660px;
+  height: 660px;
+  background: none;
+  border-radius: 100%;
+  border: 30px double black;
+  transform-origin: 0 0;
+  transform: translate3d(-330px, -30px, -330px) rotateX(90deg);
+  box-sizing: border-box;
+}
+.tonnels {
+  animation: tonnel 15000ms ease-in-out infinite alternate;
+  .tonnel {
+    .parts {
+      transform: translate(-430px, -170px) translateZ(-25px) rotateX(90deg);
+      .top {
+        width: 200px;
+        height: 50px;
+        background: $wallColor;
+      }
+      .left {
+        width: 170px;
+        height: 50px;
+        transform-origin: 0 0;
+        transform: rotateY(90deg);
+        background: $wallColor;
+      }
+      .right {
+        width: 170px;
+        height: 50px;
+        transform-origin: 0 0;
+        transform: translate(200px, 0) rotateY(90deg);
+        background: $wallColor;
+      }
+    }
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transform: translateZ(-0px) rotateY($i * 6.5 - 60deg)
+      }
+    }
   }
-  #canvas {
-    width: 304px;
-    height: 304px;
-    display: block;
-  } 
+}
+#trains {
+  animation: drive 15000ms ease-in-out infinite alternate;
+  .line {
+    width: 600px;
+    height: 600px;
+    background: none;
+    border-radius: 100%;
+    border: 2px solid rgba(100, 100, 100, 0.7);
+    transform-origin: 0 0;
+    transform: translate3d(-300px, -162px, -300px) rotateX(90deg);
+  }
+  .train {
+    &:nth-child(1) {
+      transform: rotateY(-50deg);
+      .front {
+        .connect {
+          display: none;
+        }
+        .go {
+          display: block;
+          font-size: 12px;
+          line-height: 17px;
+          text-align: center;
+          width: 40px;
+          height: 17px;
+          background: #000;
+          color: #fff;
+          transform: translate(30px, -30px);
+        }
+      }
+    }
+    &:nth-child(3) {
+      transform: rotateY(50deg);
+      .back .connect {
+        display: none;
+      }
+    }
+    .go {
+      display: none;
+    }
+    .shadow {
+      width: 100px;
+      height: 200px;
+      background: none;
+      transform-origin: 0 0;
+      transform: translate(0px, 69px) rotateX(-90deg);
+      .inner {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        filter: blur(10px);
+      }
+    }
+    .wrapper {
+      transform: translate3d(250px, -100px, 100px) rotateX(0deg);
+    }
+    .window {
+      width: 100%;
+      height: 30px;
+      background: $windowColor;
+      transform: translate(0px, -30px);
+    }
+    .front {
+      width: 100px;
+      height: 50px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 15px;
+        height: 15px;
+        background: $lightColor;
+        border-radius: 100%;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: $lightColor;
+        border-radius: 100%;
+      }
+      .connect {
+        width: 20px;
+        height: 50px;
+        transform-origin: 0% 0%;
+        transform: translate(40px, 41px) rotateX(90deg);
+        border-radius: 0 0 99px 99px;
+      }
+    }
+    .left {
+      width: 200px;
+      height: 50px;
+      transform-origin: 0% 0%;
+      transform: translate(100px, 0px) rotateY(90deg);
+      .window {
+        &::before {
+          content: '';
+          position: absolute;
+          left: calc(70% - 10px);
+          height: 100%;
+          width: 20px;
+          background: $bodyColor;
+        }
+         &::after {
+          content: '';
+          position: absolute;
+          left: calc(30% - 10px);
+          height: 100%;
+          width: 20px;
+          background: $bodyColor;
+        }
+      }
+    }
+    .right {
+      width: 200px;
+      height: 50px;
+      transform-origin: 0% 0%;
+      transform: translate(0px, 0px) rotateY(90deg);
+      .window {
+        &::before {
+          content: '';
+          position: absolute;
+          left: calc(70% - 10px);
+          height: 100%;
+          width: 20px;
+          background: $bodyColor;
+        }
+         &::after {
+          content: '';
+          position: absolute;
+          left: calc(30% - 10px);
+          height: 100%;
+          width: 20px;
+          background: $bodyColor;
+        }
+      }
+    }
+    .back {
+      width: 100px;
+      height: 50px;
+      transform: translateZ(-200px);
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 15px;
+        height: 15px;
+        background: $lightColor;
+        border-radius: 100%;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: $lightColor;
+        border-radius: 100%;
+      }
+      .connect {
+        width: 20px;
+        height: 50px;
+        transform-origin: 0% 0%;
+        transform: translate(40px, 40px) rotateX(-90deg);
+        border-radius: 0 0 99px 99px;
+      }
+    }
+    .bottom {
+      width: 100px;
+      height: 200px;
+      transform-origin: 0% 0%;
+      transform: translate(0px, 50px) rotateX(-90deg);
+    }
+    .top {
+      width: 100px;
+      height: 200px;
+      transform-origin: 0% 0%;
+      transform: translate(0px, -30px) rotateX(-90deg);
+      .antena {
+        width: 60px;
+        height: 10px;
+        transform: translate3d(20px, 30px, -30px);
+        &::before {
+          content: '';
+          position: absolute;
+          width: 30px;
+          height: 10px;
+          background: $bodyColor;
+          transform-origin: 0% 0%;
+          transform: translate(30px, 0px) rotateY(-90deg);
+        }
+        &_rear {
+          transform: translate3d(20px, 160px, -30px);
+        }
+      }
+    }
+  }
+}
+
+@keyframes drive {
+  0% {
+    transform: rotateX(-30deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-30deg) rotateY(-360 * 3deg);
+  }
+}
+@keyframes tonnel {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360 * 3deg);
+  }
+}
