@@ -20,6 +20,12 @@ class Detail extends Component {
             })
     }
 
+    saveCourse = () => {
+        let course = this.props.course;
+        let saved = window.localStorage.getItem('courses');
+        let courses = [...saved, course]
+        window.localStorage.setItem('courses', courses)
+    }
     componentDidMount() {
         this.getAllCourses();
     }
@@ -51,6 +57,8 @@ class Detail extends Component {
                 <div class='' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div>
                 <div class='' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div>
                 <div class='' >Prerequisites: {course.prerequisites || 'N/A'}</div>
+
+                <button onClick={this.saveCourse}>Save</button>
             </div>
         )
     }
