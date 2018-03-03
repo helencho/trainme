@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/helencho/trainme/issues"
   },
-  "homepage": "https://github.com/helencho/trainme#readme"
+  "homepage": "https://github.com/helencho/trainme#readme",
+  "dependencies": {
+    "react-router-dom": "^4.2.2"
+  }
 }

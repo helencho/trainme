@@ -1,16 +1,46 @@
 import React, { Component } from 'react';
+import Detail from './components/Detail';
+import Home from './components/Home';
+import Results from './components/Results';
+import { Link, Route, Switch } from 'react-router-dom';
+
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      courses: ''
+    }
+  }
+
+  updateCourses = data => {
+    this.setState({
+      courses: data 
+    })
+  }
+
+  renderHome = () => {
+    return (
+      <Home updateCourses={this.updateCourses} />
+    )
+  }
+
+  renderDetail = () => {
+    return (
+      <Detail courses={this.state.courses} updateCourses={this.updateCourses} />
+    )
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <nav>
+          <Link to='/'>TrainMe</Link>
+        </nav>
+        <Switch>
+          <Route exact path='/' render={this.renderHome} />
+          <Route path='/detail' render={this.renderDetail} />
+        </Switch>
       </div>
     );
   }
