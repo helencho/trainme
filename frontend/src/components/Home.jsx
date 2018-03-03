@@ -1,10 +1,36 @@
 import React, { Component } from 'react'
 import Results from './Results'
+import axios from 'axios'
+
+class Search extends Component {
+    constructor() {
+        super()
+        this.state = {
+            keyword: '',
+            borough: ''
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <form>
+                    <input type='text' placeholder='health aide' />
+                    <input type='text' placeholder='Brooklyn' />
+                    <input type='submit' value='Search' />
+                </form>
+            </div>
+        )
+    }
+}
+
+
 
 class Home extends Component {
     constructor() {
         super()
         this.state = {
+            courses: '',
             submitted: false
         }
     }
@@ -17,7 +43,10 @@ class Home extends Component {
         axios
             .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
             .then(res => {
-                console.log(res.data)
+                this.props.updateCourses(res.data)
+                this.setState({
+                    courses: res.data
+                })
             })
             .catch(err => {
                 console.log(err)
@@ -25,14 +54,15 @@ class Home extends Component {
     }
 
     render() {
-        const { submitted } = this.state
+        const { courses, submitted } = this.state
+        console.log(this.state)
 
         return (
             <div>
                 {submitted ?
                     <Results />
                     :
-                    <h1>Show home</h1>}
+                    <Search />}
             </div>
         )
     }
