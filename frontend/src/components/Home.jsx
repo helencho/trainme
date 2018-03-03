@@ -9,7 +9,8 @@ class Home extends Component {
         super()
         this.state = {
             keyword: '',
-            borough: ''
+            borough: '',
+            submitted: false
         }
     }
 
