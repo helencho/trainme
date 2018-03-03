@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Results from './Results'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import '../stylesheets/home.css'
 
 class Home extends Component {
     constructor() {
