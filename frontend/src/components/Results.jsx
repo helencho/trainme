@@ -19,6 +19,7 @@ class Results extends Component {
         this.getAllCourses()
     }
 
+    // Get all courses from API 
     getAllCourses = () => {
         axios
             .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
@@ -34,13 +35,15 @@ class Results extends Component {
             })
     }
 
+    // Handle search form input 
     handleInput = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    handleClick = course => {
+    // When user clicks on a course name, toggle openDetail to true, which will lead user to Detail component 
+    handleDetailClick = course => {
         this.setState({
             course: course,
             openDetail: true
@@ -51,8 +54,12 @@ class Results extends Component {
         const { courses, keyword, borough, course, openDetail } = this.state
         console.log(this.state)
 
+        // Filter through courses by course description, course name, keyword 
         const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword)
-            || course.course_name && course.course_name.toLowerCase().includes(keyword))
+            || course.course_name && course.course_name.toLowerCase().includes(keyword)
+            || course.keywords && course.keywords.toLowerCase().includes(keyword))
+            
+        // Filter through the keyword search with borough 
         const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough))
 
         return (
@@ -61,15 +68,15 @@ class Results extends Component {
                     <Detail course={course} />
                     :
                     <div>
-                        <nav>
-                            <Link to='/'>TrainMe</Link>
+                        <nav className='navbar'>
+                            <Link to='/' onClick={this.props.handleLogoClick}>TrainMe</Link>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </nav>
                         <div>
                             {results.map(course => (
                                 <div>
-                                    <p onClick={() => this.handleClick(course)}>{course.course_name}</p>
+                                    <p onClick={() => this.handleDetailClick(course)}>{course.course_name}</p>
                                     <p>{course.organization_name}</p>
                                 </div>
                             ))}
