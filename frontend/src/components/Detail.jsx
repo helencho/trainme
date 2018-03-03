@@ -22,9 +22,9 @@ class Detail extends Component {
 
     saveCourse = () => {
         let course = this.props.course;
-        let saved = window.localStorage.getItem('courses');
-        let courses = [...saved, course]
-        window.localStorage.setItem('courses', courses)
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        let courses = savedCourses ? [...savedCourses, course] : [course];
+        window.localStorage.setItem('courses', JSON.stringify(courses));
     }
     componentDidMount() {
         this.getAllCourses();
@@ -32,9 +32,8 @@ class Detail extends Component {
 
     render() {
         const { course } = this.props;
-        const {  } = this.props;
-        console.log('Detail Props:', this.props);
-        console.log('Detail State:', this.state);
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        console.log({savedCourses});
         return (
             <div>
                 <h1>{course.course_name || 'N/A'}</h1>
