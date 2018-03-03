@@ -56,12 +56,12 @@ class Results extends Component {
         console.log(this.state)
 
         // Filter through courses by course description, course name, keyword 
-        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword)
-            || course.course_name && course.course_name.toLowerCase().includes(keyword)
-            || course.keywords && course.keywords.toLowerCase().includes(keyword))
+        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword.toLowerCase())
+            || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
+            || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
 
         // Filter through the keyword search with borough 
-        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough))
+        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
 
         return (
             <div>
