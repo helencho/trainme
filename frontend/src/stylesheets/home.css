@@ -9,4 +9,14 @@ h1{
     font-size: 75px;
 
 }
+.home-search-container form{
+    display: flex;
+    flex-direction: column;
+}
+.home-search-container input[type="text"]{
+    outline: none;
+    border: none;
+    background-color: blue;
+
+}
 
