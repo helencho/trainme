@@ -58,7 +58,7 @@ class Results extends Component {
         const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword)
             || course.course_name && course.course_name.toLowerCase().includes(keyword)
             || course.keywords && course.keywords.toLowerCase().includes(keyword))
-            
+
         // Filter through the keyword search with borough 
         const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough))
 
@@ -75,9 +75,10 @@ class Results extends Component {
                         </nav>
                         <div>
                             {results.map(course => (
-                                <div>
+                                <div onClick={() => this.handleDetailClick(course)}>
                                     <p onClick={() => this.handleDetailClick(course)}>{course.course_name}</p>
                                     <p>{course.organization_name}</p>
+                                    <p>{course.city}</p>
                                 </div>
                             ))}
                         </div>
