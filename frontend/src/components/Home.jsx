@@ -9,6 +9,21 @@ class Home extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getAllCourses()
+    }
+
+    getAllCourses = () => {
+        axios
+            .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     render() {
         const { submitted } = this.state
 
