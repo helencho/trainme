@@ -68,11 +68,10 @@ class Results extends Component {
                     <Detail course={course} />
                     :
                     <div>
-                        <nav className='navbar'>
-                            <Link to='/' onClick={this.props.handleLogoClick}>TrainMe</Link>
+                        <form>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
-                        </nav>
+                        </form>
                         <div>
                             {results.map(course => (
                                 <div onClick={() => this.handleDetailClick(course)}>

@@ -28,15 +28,6 @@ class Home extends Component {
         })
     }
 
-    // When user clicks on TrainMe logo inside results, user is brought to home search page 
-    handleLogoClick = () => {
-        this.setState({
-            keyword: '',
-            borough: '',
-            submitted: false
-        })
-    }
-
     render() {
         const { keyword, borough, submitted } = this.state
         console.log(this.state)
@@ -48,9 +39,6 @@ class Home extends Component {
                     <Results keyword={keyword} borough={borough} handleLogoClick={this.handleLogoClick}/>
                     :
                     <div>
-                        <nav className='navbar'>
-                            <Link to='/'>TrainMe</Link>
-                        </nav>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='keyword' value={keyword} placeholder='Business, design, health' onChange={this.handleInput} />
                             <input type='text' name='borough' value={borough} placeholder='Brooklyn' onChange={this.handleInput} />
