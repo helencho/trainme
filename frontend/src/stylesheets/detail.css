@@ -1,5 +1,12 @@
 .detail-container {
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(241, 238, 238, 0.77);
     margin: 80px;
     padding: 20px;
+}
+.detail-name {
+    font-size: .8em
+}
+
+.detail-phone {
+    display: inline;
 }
