@@ -3,14 +3,48 @@
 /*--------------------------------------*/
 
 .results-container {
-    background-color: red;
+    background-color: white;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .single-result-container {
-    background-color: blue;
+    background-color: white;
+    border: 1px solid rgb(200, 200, 200);
+    border-bottom: none;
+    width: 600px;
+    padding: 16px;
+    transition: 0.3s all;
+}
+
+.single-result-container:last-child {
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.single-result-container:hover {
+    box-shadow: 0 0 12px rgba(200, 200, 200, 0.5);
+    z-index: 9;
 }
 
 .single-result-container p {
     padding: 0;
-    margin: 0;
+    margin: 6px 0;
+}
+
+.result-course {
+    color: blue;
+}
+
+.result-course:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.result-org, 
+.result-city {
+    color: rgb(100, 100, 100);
+    font-size: 14px;
 }
