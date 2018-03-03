@@ -32,8 +32,8 @@ h1 {
     margin: 8px 0;
     box-sizing: border-box;
     font-size: 20px; 
-    border: 1.5px solid #1D2266;
-    border-radius: 4px;
+    border: 1px solid #1D2266;
+    border-radius: 2px;
     transition: 0.2s all;
 }
 
@@ -51,8 +51,9 @@ h1 {
 
 .home-search-container input[type="text"]:focus,
 .home-search-container input[type="submit"]:focus {
-    background-color: yellow;
+    /* background-color: yellow; */
     outline: none;
+    color: #3498DB;
 }
 
 /* .home-search-container input[type="submit"]:focus{
