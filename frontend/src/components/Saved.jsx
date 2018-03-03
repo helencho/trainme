@@ -67,13 +67,9 @@ class Saved extends Component {
         return (
             <div>
                 {openDetail ?
-                    <Detail course={course} />
+                    <Detail course={course} handleBack={this.handleBack} />
                     :
                     <div className='results-container'>
-                        <form>
-                            <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
-                            <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
-                        </form>
                         {results.map(course => (
                             <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
                                 <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
