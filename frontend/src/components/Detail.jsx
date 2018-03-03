@@ -51,6 +51,7 @@ class Detail extends Component {
                 <div class='' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div>
                 <div class='' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div>
                 <div class='' >Prerequisites: {course.prerequisites || 'N/A'}</div>
+                <button onClick={this.props.handleBack}>Back</button>
             </div>
         )
     }
