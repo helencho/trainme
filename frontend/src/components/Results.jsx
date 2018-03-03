@@ -51,6 +51,13 @@ class Results extends Component {
         })
     }
 
+    // When user clicks back button in details, user is lead to results page
+    handleBack = () => {
+        this.setState({
+            openDetail: false
+        })
+    }
+
     render() {
         const { courses, keyword, borough, course, openDetail } = this.state
         console.log(this.state)
@@ -66,7 +73,7 @@ class Results extends Component {
         return (
             <div>
                 {openDetail ?
-                    <Detail course={course} />
+                    <Detail course={course} handleBack={this.handleBack} />
                     :
                     <div className='results-container'>
                         <form>
