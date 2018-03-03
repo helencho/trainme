@@ -10,7 +10,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      courses: ''
+      courses: '',
+      submitted: false
     }
   }
 
@@ -22,7 +23,7 @@ class App extends Component {
 
   renderHome = () => {
     return (
-      <Home courses={this.state.course} updateCourses={this.updateCourses} />
+      <Home courses={this.state.course} updateCourses={this.updateCourses} submitted={this.state.submitted} />
     )
   }
 
@@ -34,7 +35,7 @@ class App extends Component {
 
   handleLogoClick = () => {
     return (
-      <Home />
+      <Home submitted={this.state.submitted} />
     )
   }
 
