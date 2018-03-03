@@ -67,23 +67,20 @@ class Results extends Component {
                 {openDetail ?
                     <Detail course={course} />
                     :
-                    <div>
+                    <div className='results-container'>
                         <form>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </form>
-                        <div>
-                            {results.map(course => (
-                                <div onClick={() => this.handleDetailClick(course)}>
-                                    <p onClick={() => this.handleDetailClick(course)}>{course.course_name}</p>
-                                    <p>{course.organization_name}</p>
-                                    <p>{course.city}</p>
-                                </div>
-                            ))}
-                        </div>
+                        {results.map(course => (
+                            <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
+                                <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
+                                <p className='result-org'>{course.organization_name}</p>
+                                <p className='result-city'>{course.city}</p>
+                            </div>
+                        ))}
                     </div>
                 }
-
             </div>
         )
     }
