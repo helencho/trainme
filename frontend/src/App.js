@@ -46,8 +46,8 @@ class App extends Component {
     return (
       <div>
         <nav className='navbar'>
-          <Link to='/' onClick={this.handleLogoClick}><img src='https://i.imgur.com/FXL7KnU.png'/></Link>
-          <Link to='/saved'>Saved</Link>
+          <Link to='/' onClick={this.handleLogoClick}><img src='https://i.imgur.com/FXL7KnU.png' alt='logo' /></Link>
+          <Link to='/saved'><i class="far fa-bookmark"></i></Link>
         </nav>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
