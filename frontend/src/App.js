@@ -21,7 +21,7 @@ class App extends Component {
 
   renderHome = () => {
     return (
-      <Home updateCourses={this.updateCourses} />
+      <Home courses={this.state.course} updateCourses={this.updateCourses} />
     )
   }
 
