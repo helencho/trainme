@@ -51,14 +51,11 @@ class Home extends Component {
         const { courses, keyword, borough, submitted } = this.state
         console.log(this.state)
 
-        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword) || course.course_name && course.course_name.toLowerCase().includes(keyword))
-        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough))
-        console.log(results)
 
         return (
             <div>
                 {submitted ?
-                    <Results courses={courses} keyword={keyword} borough={borough} />
+                    <Results keyword={keyword} borough={borough} />
                     :
                     <div>
                         <form onSubmit={this.handleSubmit}>
