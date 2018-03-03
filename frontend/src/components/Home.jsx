@@ -3,34 +3,14 @@ import Results from './Results'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-
 class Home extends Component {
     constructor() {
         super()
         this.state = {
-            courses: [],
             keyword: '',
             borough: '',
             submitted: false
         }
-    }
-
-    componentDidMount() {
-        this.getAllCourses()
-    }
-
-    getAllCourses = () => {
-        axios
-            .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
-            .then(res => {
-                this.props.updateCourses(res.data)
-                this.setState({
-                    courses: res.data
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
     }
 
     handleInput = e => {
@@ -46,9 +26,8 @@ class Home extends Component {
         })
     }
 
-
     render() {
-        const { courses, keyword, borough, submitted } = this.state
+        const { keyword, borough, submitted } = this.state
         console.log(this.state)
 
 
