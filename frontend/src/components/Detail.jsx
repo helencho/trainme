@@ -21,15 +21,20 @@ class Detail extends Component {
             })
     }
 
+    saveCourse = () => {
+        let course = this.props.course;
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        let courses = savedCourses ? [...savedCourses, course] : [course];
+        window.localStorage.setItem('courses', JSON.stringify(courses));
+    }
     componentDidMount() {
         this.getAllCourses();
     }
 
     render() {
         const { course } = this.props;
-        const {  } = this.props;
-        console.log('Detail Props:', this.props);
-        console.log('Detail State:', this.state);
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        console.log({savedCourses});
         return (
             <div className='detail-container'>
                 <h1>{course.course_name || 'N/A'}</h1>
@@ -58,6 +63,8 @@ class Detail extends Component {
                 <div className='detail-' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div><br/>
                 
                 <div className='detail-' >Prerequisites: {course.prerequisites || 'N/A'}</div>
+                <button onClick={this.saveCourse}>Save</button>
+                <button onClick={this.props.handleBack}>Back</button>
             </div>
         )
     }
