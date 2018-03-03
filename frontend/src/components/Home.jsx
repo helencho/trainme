@@ -47,11 +47,11 @@ class Home extends Component {
 
 
         return (
-            <div>
+            <div className='home-container'>
                 {submitted ?
                     <Results keyword={keyword} borough={borough} handleLogoClick={this.handleLogoClick}/>
                     :
-                    <div>
+                    <div className='home-search-container'>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='keyword' value={keyword} placeholder='Business, design, health' onChange={this.handleInput} />
                             <input type='text' name='borough' value={borough} placeholder='Brooklyn' onChange={this.handleInput} />
