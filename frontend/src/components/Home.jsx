@@ -54,7 +54,7 @@ class Home extends Component {
                     <Results keyword={keyword} borough={borough} handleLogoClick={this.handleLogoClick} />
                     :
                     <div className='home-search-container'>
-                        <p>Putting you on the track to success.</p>
+                        <p>TrainMe will put you on the track to success.</p>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='keyword' value={keyword} placeholder='Keywords (ex. business, design, health)' onChange={this.handleInput} />
                             <input type='text' name='borough' value={borough} placeholder='Borough (ex. Brooklyn)' onChange={this.handleInput} />

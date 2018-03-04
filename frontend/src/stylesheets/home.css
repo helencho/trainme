@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
 body {
     font-family: 'Actor', sans-serif;
     font-size: 30px;
@@ -18,7 +20,12 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 140px;
+}
+
+.home-search-container p {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .home-search-container form {
@@ -28,6 +35,7 @@ h1 {
     align-items: center;
     width: 700px;
     margin: auto;
+    margin-top: 42px;
     position: relative;
     transition: 0.3s all;
     -webkit-transiton: 0.3s all;
