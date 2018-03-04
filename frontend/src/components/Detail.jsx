@@ -4,6 +4,7 @@ import '../stylesheets/detail.css'
 import axios from 'axios';
 
 class Detail extends Component {
+    state = {isSaved: false}
 
     getAllCourses = () => {
         let { updateCourses } = this.props;
@@ -26,17 +27,59 @@ class Detail extends Component {
         let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
         let courses = savedCourses ? [...savedCourses, course] : [course];
         window.localStorage.setItem('courses', JSON.stringify(courses));
+
+        this.setState({
+            isSaved: true
+        })
+    }
+
+    unsaveCourse = () => {
+        let course = this.props.course;
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        let courses = savedCourses ? [...savedCourses, course] : [course];
+        let newArr = [];
+
+        savedCourses.forEach(el => {
+            if (JSON.stringify(el) !== JSON.stringify(course)) {
+                newArr.push(el)
+            }
+        })
+
+        window.localStorage.setItem('courses', JSON.stringify(newArr));
+
+        this.setState({
+            isSaved: false
+        })
+    }
+
+    checkSaveState = () => {
+        let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        let course = this.props.course;
+
+        if (JSON.stringify(savedCourses).includes(JSON.stringify(course))) {
+            this.setState({
+                isSaved: true
+            })
+        }
     }
     componentDidMount() {
         this.getAllCourses();
+        this.checkSaveState();
     }
 
     render() {
+        const { isSaved } = this.state;
         const { course } = this.props;
         let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
+        console.log({state: this.state});
         console.log({savedCourses});
+        console.log('checkSave:', JSON.stringify(savedCourses).includes(JSON.stringify(course)))
+
         return (
             <div className='detail-container'>
+                <span className='x-btn' onClick={this.props.handleBack}>
+                    <i class="fas fa-times" onClick={this.props.handleBack}></i>
+                </span>
                 <h2>{course.course_name || 'N/A'}</h2>
                 <div className='detail-name' >Organization Name: 
                     {course.organization_name || 'N/A'}</div>
@@ -69,8 +112,11 @@ class Detail extends Component {
                 <div className='detail-not-include' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div>
                 <div className='detail-prereq' >Prerequisites: {course.prerequisites || 'N/A'}</div>
                 <hr />
-                <button onClick={this.saveCourse}>Save</button>
-                <button onClick={this.props.handleBack}>Back</button>
+
+                {isSaved 
+                    ? <button className='saveBtn' onClick={this.unsaveCourse}>Unsave Posting</button> 
+                    : <button className='unsaveBtn' onClick={this.saveCourse}>Save Posting</button>
+                }
 
             </div>
         )
