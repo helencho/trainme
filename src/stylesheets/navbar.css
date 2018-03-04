@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 6px;
-    margin-bottom: 2.2%;
+    margin-bottom: 26px;
     transition: 0.3s all;
     -webkit-transition:0.3s all;
     -moz-transition: 0.3s all;
@@ -46,10 +46,14 @@
     color: rgb(0,252,42);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 932px) {
     .logo {
         transform: scale(0.8);
     }
+}
+
+@media screen and (max-width: 480px) {
+
     .navbar {
         height: 60px;
     }
