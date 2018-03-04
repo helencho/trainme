@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div>
         <nav className='navbar'>
-          <Link to='/' onClick={this.handleLogoClick}><img src='https://i.imgur.com/FXL7KnU.png' alt='logo' className='logo' /></Link>
+          <Link to='/' onClick={this.handleLogoClick}><img src='https://i.imgur.com/FXL7KnU.png?1' alt='logo' className='logo' /></Link>
           <Link to='/saved'><i class="far fa-bookmark"></i></Link>
         </nav>
         <Switch>

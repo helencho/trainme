@@ -1,58 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
 body {
     font-family: 'Actor', sans-serif;
     font-size: 30px;
-    color:black;
+    color: black;
     text-align: center;
-    
-}
-h1{
-    font-size: 75px;
+    /* background-image: url('https://www.ashfieldandmansfieldconservatives.org.uk/sites/www.ashfieldandmansfieldconservatives.org.uk/files/2016-11/DIFF-HAPPY-JOBS-940.png');
+    background-position: fixed;
+    background-repeat: no-repeat; */
 
 }
-.home-search-container form{
+
+h1 {
+    font-size: 75px;
+}
+
+.home-search-container {
     display: flex;
     flex-direction: column;
-    float: center;
-    width: 550px;
-    height: 450px;
-    margin: auto;
-    position: relative;
-    
-}
-.home-search-container input[type="text"]{
-    text-align: center;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size:35px; 
-    border: 1.5px solid blue;
-    border-radius: 4px;
-    /* border-radius: 30px; */
-    
-}
-.home-search-container input[type="submit"]{
-    text-align: center;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size:20px; 
-    border: 1.5px solid black;
-    border-radius: 4px;
-    /* border-radius: 30px; */
-}
-.home-search-container input[type="text"]:focus{
-    background-color: yellow;
-    outline: none;
-}
-.home-search-container input[type="submit"]:focus{
-    outline: none;
-}
-.home-search-container input[type="text"]::placeholder{
-    font-size:20px;
-}
-.home-search-container input[type="submit"]::placeholder{
-    font-size:20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
 }
 
+.home-search-container p {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home-search-container form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    margin: auto;
+    margin-top: 42px;
+    position: relative;
+    transition: 0.3s all;
+    -webkit-transiton: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    background-color: none;
+}
+
+.home-search-container input[type="text"] {
+    font-family: 'Actor', sans-serif;
+    flex-grow: 1;
+    margin-right: 1%;
+    padding: 12px 20px;
+    background-color: white;
+    color: rgba(29, 34, 102, 0.8);
+    border: 1px solid rgba(29, 34, 102, 0.8);
+    font-size: 18px;
+    text-align: left;
+    border-radius: 1px;
+    transition: 0.3s all;
+    -webkit-transiton: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+}
+
+.home-search-container input[type="submit"] {
+    font-family: 'Actor', sans-serif;
+    text-align: center;
+    width: 92px;
+    padding: 12px 20px;
+    background-color: rgb(245,242,242);
+    border: 1px solid rgb(245,242,242);
+    font-size: 18px;
+    border-radius: 1px;
+    transition: 0.3s all;
+    -webkit-transiton: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+}
+
+.home-search-container input[type="text"]::placeholder,
+.home-search-container input[type="submit"]::placeholder {
+    font-family: 'Actor', sans-serif;
+    font-size: 18px;
+    color: rgba(29, 34, 102, 0.3);
+}
+
+.home-search-container input[type="text"]:focus,
+.home-search-container input[type="submit"]:focus {
+    outline: none;
+}
+
+.home-search-container input[type="submit"]:hover {
+   border: 1px solid rgb(216, 216, 216);;
+}
+
+@media screen and (max-width: 721px) {
+    .home-search-container {
+        margin-top: 100px;
+    }
+
+    .home-search-container {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    
+    .home-search-container form {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .home-search-container input[type="text"] {
+        margin: 0;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 6%;
+    }
+
+    .home-search-container input[type="submit"] {
+        width: 124px;
+    }
+}

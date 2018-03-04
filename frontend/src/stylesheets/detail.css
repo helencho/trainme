@@ -54,6 +54,7 @@ hr {
     border: solid #413F3F 1.em;
 }
 
+
 .detail-services {
     font-size: .8em;
     display: inline;
@@ -78,3 +79,8 @@ hr {
     display: inline;
     margin: 10px;
 }
+
+.x-btn {
+    float: right;
+}
+
