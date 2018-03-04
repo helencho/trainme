@@ -2,12 +2,18 @@
     background-color: rgba(241, 238, 238, 0.77);
     font-size: .8em;
     line-height: 1em;
-    margin: 10px 150px;
+    /* margin: 10px 150px; */
+    margin: 3% auto;
     padding: 20px;
+    width: 80%;
+    font-size: 16px;
+    /* text-align: left; */
 }
+
 h2 {
     color: #1d2266;
 }
+
 a:link {
     color: #1d2266;
     text-decoration: none;
@@ -54,7 +60,6 @@ hr {
     border: solid #413F3F 1.em;
 }
 
-
 .detail-services {
     font-size: .8em;
     display: inline;
@@ -80,7 +85,30 @@ hr {
     margin: 10px;
 }
 
+
+/* Save / Unsave Buttons */
+
 .x-btn {
     float: right;
 }
 
+button {
+    outline: none;
+    border: none;
+    width: 152px;
+    padding: 12px 20px;
+    margin: 3%;
+    background-color: rgb(216, 215, 215);
+    border: 1px solid rgb(216, 215, 215);
+    font-size: 16px;
+    font-family: 'Actor', sans-serif;
+    text-align: center;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+}
+
+button:hover {
+    border: 1px solid rgb(185, 185, 185);
+}
