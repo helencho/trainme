@@ -81,7 +81,8 @@ class Detail extends Component {
                     <i class="fas fa-times" onClick={this.props.handleBack}></i>
                 </span>
                 <h2>{course.course_name || 'N/A'}</h2>
-                <div className='detail-name' >Organization Name: {course.organization_name || 'N/A'}</div>
+                <div className='detail-name' >Organization Name: 
+                    {course.organization_name || 'N/A'}</div>
                 
                 <div className='detail-address' >Address: {course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</div><br />
                 <hr />
