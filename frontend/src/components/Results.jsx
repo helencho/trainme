@@ -6,48 +6,48 @@ import '../stylesheets/results.css'
 
 class Results extends Component {
     constructor() {
-        super()
-        this.state = {
-            courses: [],
-            keyword: '',
-            borough: '',
-            hra: false,
-            job: false,
-            financial: false,
-            course: [],
-            openDetail: false,
-            messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
-        }
+      super()
+      this.state = {
+        courses: [],
+        keyword: '',
+        borough: '',
+        hra: false,
+        job: false,
+        financial: false,
+        course: [],
+        openDetail: false,
+        messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
+      }
     }
 
     componentDidMount() {
-        this.getAllCourses()
+      this.getAllCourses()
     }
 
-    // Get all courses from API 
+    // Get all courses from API
     getAllCourses = () => {
-        axios
-            .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
-            .then(res => {
-                this.setState({
-                    courses: res.data,
-                    keyword: this.props.keyword,
-                    borough: this.props.borough
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
+      axios
+        .get(`https://data.cityofnewyork.us/resource/5teq-yyit.json`)
+        .then(res => {
+              this.setState({
+                  courses: res.data,
+                  keyword: this.props.keyword,
+                  borough: this.props.borough
+              })
+          })
+          .catch(err => {
+              console.log(err)
+          })
     }
 
-    // Handle search form input 
+    // Handle search form input
     handleInput = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    // When user clicks on a course name, toggle openDetail to true, which will lead user to Detail component 
+    // When user clicks on a course name, toggle openDetail to true, which will lead user to Detail component
     handleDetailClick = course => {
         this.setState({
             course: course,
@@ -62,7 +62,7 @@ class Results extends Component {
         })
     }
 
-    // When user clicks on a checkbox, sets the checkbox to true or false 
+    // When user clicks on a checkbox, sets the checkbox to true or false
     handleCheckbox = e => {
         this.setState({
             [e.target.name]: !this.state[e.target.name]
@@ -78,16 +78,19 @@ class Results extends Component {
         const { courses, keyword, borough, hra, job, financial, course, openDetail } = this.state
         console.log(this.state)
 
-        // Filter through courses by course description, course name, keyword 
-        const keywordFilter = courses.filter(course => course.coursedescription && course.coursedescription.toLowerCase().includes(keyword.toLowerCase())
-            || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
-            || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
+        // Filter through courses by course description, course name, keyword
+        const results = courses
+          .filter(course =>
+            course.coursedescription && course.coursedescription.toLowerCase().includes(keyword.toLowerCase())
+              || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
+              || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
+          .filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
+          .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
+          .filter(result => job ? result.job_placement_services : result)
+          .filter(result => financial ? result.financial_aid_services : result)
 
-        // Filter through the keyword search by borough, hra, job, and financial 
-        const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
-            .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
-            .filter(result => job ? result.job_placement_services : result)
-            .filter(result => financial ? result.financial_aid_services : result)
+        // Filter through the keyword search by borough, hra, job, and financial
+        // const results = keywordFilter
 
         console.log(results)
 
@@ -124,4 +127,4 @@ class Results extends Component {
     }
 }
 
-export default Results 
+export default Results
