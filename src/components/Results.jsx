@@ -82,7 +82,7 @@ class Results extends Component {
           course.coursedescription && course.coursedescription.toLowerCase().includes(keyword)
             || course.course_name && course.course_name.toLowerCase().includes(keyword)
             || course.keywords && course.keywords.toLowerCase().includes(keyword))
-        .filter(result => borough ? result.borough.toLowerCase().includes(borough.toLowerCase()): result)
+        .filter(result => result.borough ? result.borough.toLowerCase().includes(borough.toLowerCase()): result)
         // .filter(({ borough }) => _.includes(borough.toLowerCase(), borough.toLowerCase()))
         .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
         .filter(result => job ? result.job_placement_services : result)

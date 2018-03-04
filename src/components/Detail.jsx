@@ -4,7 +4,7 @@ import '../stylesheets/detail.css'
 import axios from 'axios';
 
 class Detail extends Component {
-    state = {isSaved: false}
+    state = { isSaved: false }
 
     getAllCourses = () => {
         let { updateCourses } = this.props;
@@ -71,8 +71,8 @@ class Detail extends Component {
         const { isSaved } = this.state;
         const { course } = this.props;
         let savedCourses = JSON.parse(window.localStorage.getItem('courses'));
-        console.log({state: this.state});
-        console.log({savedCourses});
+        console.log({ state: this.state });
+        console.log({ savedCourses });
         console.log('checkSave:', JSON.stringify(savedCourses).includes(JSON.stringify(course)))
 
         return (
@@ -80,41 +80,40 @@ class Detail extends Component {
                 <span className='x-btn' onClick={this.props.handleBack}>
                     <i class="fas fa-times" onClick={this.props.handleBack}></i>
                 </span>
+
                 <h2>{course.course_name || 'N/A'}</h2>
-                <div className='detail-name' >Organization Name: 
-                    {course.organization_name || 'N/A'}</div>
-                
-                <div className='detail-address' >Address: {course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</div>
+                <div className='detail-name'>{course.organization_name || 'N/A'}</div>
+                <div className='detail-address'>{course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</div>
                 <hr />
-                <div className='detail-contact' >Contact: {course.contact_firstname || 'N/A'} {course.contact_lastname || 'N/A'}</div>
-                
-                  <div className='detail-phone' >Phone: {course.phone1 || 'N/A'}</div>
-                  <div className='detail-phone' >Fax: {course.fax || 'N/A'}</div><br />
-                
-                <div className='detail-web' >Website: {<a href={course.website} target='_blank'>{course.website}</a> || 'N/A'}</div>
+                <div className='detail-contact'>Contact: {course.contact_firstname || 'N/A'} {course.contact_lastname || 'N/A'}</div>
+
+                <div className='detail-phone'>Phone: {course.phone1 || 'N/A'}</div>
+                <div className='detail-phone'>Fax: {course.fax || 'N/A'}</div><br />
+
+                <div className='detail-web'>Website: {course.website ? <a href={course.website} target='_blank'>{course.website}</a> : 'n/a'}</div>
                 <hr />
-                <div className='detail-type' >Training Type: {course.delivery_method || 'N/A'}</div>
-                <div className='detail-instructor' >Instructor Credentials: {course.instructor_credentials || 'N/A'}</div>
-                <div className='detail-class' >Max Class Size: {course.max_class_size || 'N/A'}</div>             
-                <div className='detail-class' >HRA Approved: {course.is_hra || 'N/A'}</div>
+                <div className='detail-type'>Training Type: {course.delivery_method || 'N/A'}</div>
+                <div className='detail-instructor'>Instructor Credentials: {course.instructor_credentials || 'N/A'}</div>
+                <div className='detail-class'>Max Class Size: {course.max_class_size || 'N/A'}</div>
+                <div className='detail-class'>HRA Approved: {course.is_hra || 'N/A'}</div>
                 <hr />
-                <div className='detail-description' >About This Course: {course.coursedescription || 'N/A'}</div>
+                <div className='detail-description'>About This Course: {course.coursedescription || 'N/A'}</div>
                 <hr />
-                <div className='detail-schedule' >Schedule: {course.schedule || 'N/A'}</div>
-                <div className='detail-duration' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div>
-                
-                 <div className='detail-placement' >Job Placement: {course.job_placement_services ? 'Available' : 'Not Available'}</div>
-                 <div className='detail-services' >Financial Aid: {course.financial_aid_services ? 'Available' : 'Not Available'}</div>
-                
+                {/* <div className='detail-schedule' >Schedule: {course.schedule || 'N/A'}</div> */}
+                <div className='detail-duration'>Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div>
+
+                <div className='detail-placement'>Job placement is {course.job_placement_services ? 'available' : 'not available'}</div>
+                <div className='detail-services'>Financial aid is {course.financial_aid_services ? 'offered' : 'not offered'}</div>
+
                 <hr />
-                <div className='detail-total' >Cost Total: ${course.cost_total || 'N/A'}</div>
-                <div className='detail-includes' >Cost Includes: {course.cost_includes}</div>
-                <div className='detail-not-include' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div>
-                <div className='detail-prereq' >Prerequisites: {course.prerequisites || 'N/A'}</div>
+                <div className='detail-total'>Cost Total: ${course.cost_total || 'N/A'}</div>
+                <div className='detail-includes'>Cost Includes: {course.cost_includes}</div>
+                {/* <div className='detail-not-include'>Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div> */}
+                <div className='detail-prereq'>Prerequisites: {course.prerequisites || 'N/A'}</div>
                 <hr />
 
-                {isSaved 
-                    ? <button className='saveBtn' onClick={this.unsaveCourse}>Unsave Posting</button> 
+                {isSaved
+                    ? <button className='saveBtn' onClick={this.unsaveCourse}>Unsave Posting</button>
                     : <button className='unsaveBtn' onClick={this.saveCourse}>Save Posting</button>
                 }
 
