@@ -83,14 +83,13 @@ class Results extends Component {
             || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
             || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
 
-        // Filter through the keyword search with borough 
+        // Filter through the keyword search by borough, hra, job, and financial 
         const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
+            .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
+            .filter(result => job ? result.job_placement_services : result)
+            .filter(result => financial ? result.financial_aid_services : result)
 
-        // Filter through courses that is_hra, job_placement_services, financial_aid_services 
-        const isHRA = results.filter(result => result.is_hra && result.is_hra.toLowerCase() === 'yes') 
-        const isJob = results.filter(result => result.job_placement_services) 
-        const isFinancial = results.filter(result => result.financial_aid_services) 
-
+        console.log(results)
 
         return (
             <div>
@@ -103,7 +102,7 @@ class Results extends Component {
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                         </form>
                         <form>
-                            <input type='checkbox' name='hra' check={hra} onChange={this.handleCheckbox} />HRA Approved
+                            <input type='checkbox' name='hra' checked={hra} onChange={this.handleCheckbox} />HRA Approved
                             <input type='checkbox' name='job' checked={job} onChange={this.handleCheckbox} />Job Placement
                             <input type='checkbox' name='financial' checked={financial} onChange={this.handleCheckbox} />Financial Services
 
