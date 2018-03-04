@@ -41,33 +41,34 @@ class Detail extends Component {
                 <div className='detail-name' >Organization Name: 
                     {course.organization_name || 'N/A'}</div>
                 
-                <div className='detail-address' >Address: {course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</div><br />
+                <div className='detail-address' >Address: {course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</div>
                 <hr />
                 <div className='detail-contact' >Contact: {course.contact_firstname || 'N/A'} {course.contact_lastname || 'N/A'}</div>
-                <div className='contact-phone'>
-                <div className='detail-phone' >Phone: {course.phone1 || 'N/A'}</div>
-                <div className='detail-phone' >Fax: {course.fax || 'N/A'}</div><br />
-                </div>
-                <div className='detail-web' >Website: {<a href={course.website}>{course.website}</a> || 'N/A'}</div><br />
+                
+                  <div className='detail-phone' >Phone: {course.phone1 || 'N/A'}</div>
+                  <div className='detail-phone' >Fax: {course.fax || 'N/A'}</div><br />
+                
+                <div className='detail-web' >Website: {<a href={course.website} target='_blank'>{course.website}</a> || 'N/A'}</div>
                 <hr />
                 <div className='detail-type' >Training Type: {course.delivery_method || 'N/A'}</div>
                 <div className='detail-class' >Max Class Size: {course.max_class_size || 'N/A'}</div>                
                 <div className='detail-instructor' >Instructor Credentials: {course.instructor_credentials || 'N/A'}</div>
-                <div className='detail-hra' >HRA Approved: {course.is_hra || 'N/A'}</div><br/>
+                <div className='detail-hra' >HRA Approved: {course.is_hra || 'N/A'}</div>
                 <hr />
-                <div className='detail-description' >About This Course: {course.coursedescription || 'N/A'}</div><br/>
+                <div className='detail-description' >About This Course: {course.coursedescription || 'N/A'}</div>
+                <hr />
                 <div className='detail-schedule' >Schedule: {course.schedule || 'N/A'}</div>
-                <div className='detail-placement' >Job Placement Services: {course.job_placement_services ? 'Available' : 'Not Available'}</div>
-                <div className='detail-financial' >Financial Aid Services: {course.financial_aid_services ? 'Available' : 'Not Available'}</div><br/>
+                <div className='detail-duration' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div>
+                
+                 <div className='detail-placement' >Job Placement: {course.job_placement_services ? 'Available' : 'Not Available'}</div>
+                 <div className='detail-services' >Financial Aid: {course.financial_aid_services ? 'Available' : 'Not Available'}</div>
+                
                 <hr />
-                <div className='detail-total' >Cost Total: {course.cost_total || 'N/A'}</div>
+                <div className='detail-total' >Cost Total: ${course.cost_total || 'N/A'}</div>
                 <div className='detail-includes' >Cost Includes: {course.cost_includes}</div>
-                <div className='detail-not-include' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div><br/>
-
-                <div className='detail-duration' >Duration: {course.duration || 'N/A'} {course.duration_unit || 'N/A'} </div><br/>
-                <hr />
+                <div className='detail-not-include' >Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</div>
                 <div className='detail-prereq' >Prerequisites: {course.prerequisites || 'N/A'}</div>
-
+                <hr />
                 <button onClick={this.saveCourse}>Save</button>
                 <button onClick={this.props.handleBack}>Back</button>
 
