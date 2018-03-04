@@ -11,6 +11,9 @@ class Results extends Component {
             courses: [],
             keyword: '',
             borough: '',
+            hra: false,
+            job: false,
+            financial: false,
             course: [],
             openDetail: false,
             messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
@@ -59,13 +62,20 @@ class Results extends Component {
         })
     }
 
+    // When user clicks on a checkbox, sets the checkbox to true or false 
+    handleCheckbox = e => {
+        this.setState({
+            [e.target.name]: !this.state[e.target.name]
+        })
+    }
+
     randomMessage = () => {
         let index = Math.floor(Math.random() * this.state.messages.length)
         return this.state.messages[index]
     }
 
     render() {
-        const { courses, keyword, borough, course, openDetail } = this.state
+        const { courses, keyword, borough, hra, job, financial, course, openDetail } = this.state
         console.log(this.state)
 
         // Filter through courses by course description, course name, keyword 
@@ -85,6 +95,12 @@ class Results extends Component {
                         <form>
                             <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                             <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
+                        </form>
+                        <form>
+                            <input type='checkbox' name='hra' check={hra} onChange={this.handleCheckbox} />HRA Approved
+                            <input type='checkbox' name='job' checked={job} onChange={this.handleCheckbox} />Job Placement
+                            <input type='checkbox' name='financial' checked={financial} onChange={this.handleCheckbox} />Financial Services
+
                         </form>
                         {results.length > 0 ?
                             results.map(course => (
