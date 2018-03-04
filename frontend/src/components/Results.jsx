@@ -86,6 +86,12 @@ class Results extends Component {
         // Filter through the keyword search with borough 
         const results = keywordFilter.filter(result => result.borough && result.borough.toLowerCase().includes(borough.toLowerCase()))
 
+        // Filter through courses that is_hra, job_placement_services, financial_aid_services 
+        const isHRA = results.filter(result => result.is_hra && result.is_hra.toLowerCase() === 'yes') 
+        const isJob = results.filter(result => result.job_placement_services) 
+        const isFinancial = results.filter(result => result.financial_aid_services) 
+
+
         return (
             <div>
                 {openDetail ?
