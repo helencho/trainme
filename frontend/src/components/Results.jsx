@@ -16,7 +16,12 @@ class Results extends Component {
         financial: false,
         course: [],
         openDetail: false,
-        messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
+        messages: [
+            'Please try a different search.', 
+            'Couldn\'t find any matching results. Sorry.', 
+            'Nothing found. Womp womp.', 
+            'No courses that meet your criteria.', 
+            'Try a simpler search.']
       }
     }
 
