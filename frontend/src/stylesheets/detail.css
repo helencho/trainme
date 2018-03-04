@@ -4,11 +4,23 @@
     padding: 20px;
 }
 .detail-name {
-    font-size: .8em
+    font-size: .83em;
+}
+
+.detail-address {
+    font-size: .8em;
 }
 
 .detail-phone {
     display: inline;
+    margin: 10px;
+}
+
+.detail-description {
+    text-align: justify;
+    margin: 0px 100px;
+    padding: 5px;
+    border: solid #413F3F 1.em;
 }
 
 .x-btn {
