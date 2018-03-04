@@ -16,7 +16,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.setState({
-            submitted: this.props.submitted 
+            submitted: this.props.submitted
         })
     }
 
@@ -51,9 +51,10 @@ class Home extends Component {
         return (
             <div className='home-container'>
                 {submitted ?
-                    <Results keyword={keyword} borough={borough} handleLogoClick={this.handleLogoClick}/>
+                    <Results keyword={keyword} borough={borough} handleLogoClick={this.handleLogoClick} />
                     :
                     <div className='home-search-container'>
+                        <p>TrainMe will put you on the track to success.</p>
                         <form onSubmit={this.handleSubmit}>
                             <input type='text' name='keyword' value={keyword} placeholder='Keywords (ex. business, design, health)' onChange={this.handleInput} />
                             <input type='text' name='borough' value={borough} placeholder='Borough (ex. Brooklyn)' onChange={this.handleInput} />
