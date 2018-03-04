@@ -22,7 +22,8 @@ class Results extends Component {
           'Please try a different search.',
           'Couldn\'t find anything :(',
           'Nothing found. Womp womp.',
-        ],
+          'No courses that meet your criteria.', 
+          'Try a simpler search.']
       }
     }
 
