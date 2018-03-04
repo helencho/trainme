@@ -1,18 +1,34 @@
 .detail-container {
     background-color: rgba(241, 238, 238, 0.77);
-    
-    margin: 50px 150px;
+    font-size: .8em;
+    line-height: 1em;
+    margin: 10px 150px;
     padding: 20px;
 }
 h2 {
     color: #1d2266;
 }
+a:link {
+    color: #1d2266;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1E7E2A
+} 
+
+hr {
+    margin: 10px;
+    padding: .03em;
+}
+
 .detail-name {
-    font-size: .83em;
+    font-size: 1.0em;
+    margin: 15px;
 }
 
 .detail-address {
-    font-size: .8em;
+    font-size: .95em;
 }
 
 .detail-web href {
@@ -20,18 +36,51 @@ h2 {
 }
 
 .detail-phone {
+    font-size: .8em;
     display: inline;
     margin: 10px;
+}
+.detail-web {
+    margin-top: 8px;
+    color: #1d2266;
 }
 
 .detail-description {
     text-align: justify;
-    font-size: 1em;
+    font-size: .8em;
+    line-height: normal;
     margin: 0px 100px;
     padding: 5px;
     border: solid #413F3F 1.em;
 }
 
+
+.detail-services {
+    font-size: .8em;
+    display: inline;
+    margin: 10px;  
+}
+
+.detail-total {
+    font-size: 1.2em;
+    margin: 7px;
+}
+
+.detail-not-include {
+    margin: 5px;
+}
+
+.detail-prereq {
+    margin: 10px
+}
+
+.detail-class {
+    font-size: .8em;
+    display: inline;
+    margin: 10px;
+}
+
 .x-btn {
     float: right;
 }
+
