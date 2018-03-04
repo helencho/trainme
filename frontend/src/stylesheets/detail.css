@@ -10,3 +10,7 @@
 .detail-phone {
     display: inline;
 }
+
+.x-btn {
+    float: right;
+}
