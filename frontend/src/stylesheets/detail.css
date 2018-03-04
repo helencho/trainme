@@ -54,6 +54,39 @@ hr {
     border: solid #413F3F 1.em;
 }
 
+<<<<<<< HEAD
 .x-btn {
     float: right;
 }
+=======
+
+.detail-services {
+    font-size: .8em;
+    display: inline;
+    margin: 10px;  
+}
+
+.detail-total {
+    font-size: 1.2em;
+    margin: 7px;
+}
+
+.detail-not-include {
+    margin: 5px;
+}
+
+.detail-prereq {
+    margin: 10px
+}
+
+.detail-class {
+    font-size: .8em;
+    display: inline;
+    margin: 10px;
+}
+
+.x-btn {
+    float: right;
+}
+
+>>>>>>> abf65ab7ea90b10c8ba3ffb048f73103d780e826
