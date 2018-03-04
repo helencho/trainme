@@ -97,6 +97,7 @@ button {
     padding: 12px 20px;
     margin: 3% auto;
     display: flex;
+    justify-content: center;
     background-color: rgb(216, 215, 215);
     border: 1px solid rgb(216, 215, 215);
     font-size: 16px;
