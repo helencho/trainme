@@ -40,7 +40,8 @@ h1 {
     align-items: center;
     width: 700px;
     margin: auto;
-    margin-top: 164px;
+    /* margin-top: 164px; */
+    margin-top: 16%;
     position: relative;
     transition: 0.3s all;
     -webkit-transiton: 0.3s all;
@@ -99,13 +100,13 @@ h1 {
 
 @media screen and (max-width: 1084px) {
     .home-search-container form {
-        margin-top: 122px;
+        margin-top: 126px;
     }
 }
 
 @media screen and (max-width: 902px) {
     .home-search-container form {
-        margin-top: 100px;
+        margin-top: 112px;
     }
 }
 
