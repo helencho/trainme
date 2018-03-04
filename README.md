@@ -1,3 +1,3 @@
 # Train Me 
 
-We are the conductors
+We are The Conductors. We will put you on the track to success. 
