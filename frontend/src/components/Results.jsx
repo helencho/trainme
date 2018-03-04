@@ -6,6 +6,7 @@ import '../stylesheets/results.css'
 import _ from 'lodash'
 
 class Results extends Component {
+
     constructor() {
       super()
       this.state = {
@@ -17,7 +18,11 @@ class Results extends Component {
         financial: false,
         course: [],
         openDetail: false,
-        messages: ['Please try a different search.', 'Couldn\'t find anything :(', 'Nothing found. Womp womp.']
+        messages: [
+          'Please try a different search.',
+          'Couldn\'t find anything :(',
+          'Nothing found. Womp womp.',
+        ],
       }
     }
 
@@ -40,31 +45,25 @@ class Results extends Component {
 
     // Handle search form input
     handleInput = e => {
-      this.setState({
-        [e.target.name]: e.target.value
-      })
+      this.setState({ [e.target.name]: e.target.value })
     }
 
     // When user clicks on a course name, toggle openDetail to true, which will lead user to Detail component
     handleDetailClick = course => {
       this.setState({
-        course: course,
-        openDetail: true
+        course,
+        openDetail: true,
       })
     }
 
     // When user clicks back button in details, user is lead to results page
     handleBack = () => {
-      this.setState({
-          openDetail: false
-      })
+      this.setState({ openDetail: false })
     }
 
     // When user clicks on a checkbox, sets the checkbox to true or false
     handleCheckbox = e => {
-      this.setState({
-        [e.target.name]: !this.state[e.target.name]
-      })
+      this.setState({ [e.target.name]: !this.state[e.target.name] })
     }
 
     randomMessage = () => {
@@ -73,14 +72,15 @@ class Results extends Component {
     }
 
     render() {
-      const { courses, keyword, borough, hra, job, financial, course, openDetail } = this.state
+      const { courses, borough, hra, job, financial, course, openDetail } = this.state
+      const keyword = this.state.keyword.toLowerCase()
 
       // Filter through courses by course description, course name, keyword and checkbox toggles
       const filteredCourses = courses
         .filter(course =>
-          course.coursedescription && course.coursedescription.toLowerCase().includes(keyword.toLowerCase())
-            || course.course_name && course.course_name.toLowerCase().includes(keyword.toLowerCase())
-            || course.keywords && course.keywords.toLowerCase().includes(keyword.toLowerCase()))
+          course.coursedescription && course.coursedescription.toLowerCase().includes(keyword)
+            || course.course_name && course.course_name.toLowerCase().includes(keyword)
+            || course.keywords && course.keywords.toLowerCase().includes(keyword))
         .filter(({borough}) => _.includes(borough.toLowerCase(), borough.toLowerCase()))
         .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
         .filter(result => job ? result.job_placement_services : result)
@@ -90,9 +90,9 @@ class Results extends Component {
         ? <p className='results-message'>{this.randomMessage()}</p>
         :  filteredCourses.map(course => (
             <div onClick={() => this.handleDetailClick(course)} className='single-result-container'>
-                <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
-                <p className='result-org'>{course.organization_name}</p>
-                <p className='result-city'>{course.city}</p>
+              <p onClick={() => this.handleDetailClick(course)} className='result-course'>{course.course_name}</p>
+              <p className='result-org'>{course.organization_name}</p>
+              <p className='result-city'>{course.city}</p>
             </div>
           ))
 
