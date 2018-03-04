@@ -72,3 +72,9 @@ hr {
 .detail-prereq {
     margin: 10px
 }
+
+.detail-class {
+    font-size: .8em;
+    display: inline;
+    margin: 10px;
+}

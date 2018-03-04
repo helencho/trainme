@@ -51,9 +51,9 @@ class Detail extends Component {
                 <div className='detail-web' >Website: {<a href={course.website} target='_blank'>{course.website}</a> || 'N/A'}</div>
                 <hr />
                 <div className='detail-type' >Training Type: {course.delivery_method || 'N/A'}</div>
-                <div className='detail-class' >Max Class Size: {course.max_class_size || 'N/A'}</div>                
                 <div className='detail-instructor' >Instructor Credentials: {course.instructor_credentials || 'N/A'}</div>
-                <div className='detail-hra' >HRA Approved: {course.is_hra || 'N/A'}</div>
+                <div className='detail-class' >Max Class Size: {course.max_class_size || 'N/A'}</div>             
+                <div className='detail-class' >HRA Approved: {course.is_hra || 'N/A'}</div>
                 <hr />
                 <div className='detail-description' >About This Course: {course.coursedescription || 'N/A'}</div>
                 <hr />
