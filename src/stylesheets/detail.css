@@ -6,12 +6,26 @@
     margin: 3% auto;
     padding: 20px;
     width: 80%;
-    font-size: 16px;
-    /* text-align: left; */
+    font-size: 18px;
+    text-align: left;
 }
 
-h2 {
+.detail-section-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.detail-container p {
+    margin: 10px 20px;
+    line-height: 1.6;
+}
+
+.detail-container h2 {
     color: #1d2266;
+    margin: 20px;
 }
 
 a:link {
@@ -24,30 +38,20 @@ a:hover {
 } 
 
 hr {
-    margin: 10px;
+    margin: 10px 20px;
     padding: .03em;
 }
 
-.detail-name {
+/* .detail-name {
     font-size: 1.0em;
-    margin: 15px;
-}
-
-.detail-address {
-    font-size: .95em;
-}
-
-.detail-web href {
-    color: #1d2266;
 }
 
 .detail-phone {
     font-size: .8em;
-    display: inline;
-    margin: 10px;
+    margin-right: 10px;
 }
+
 .detail-web {
-    margin-top: 8px;
     color: #1d2266;
 }
 
@@ -55,38 +59,25 @@ hr {
     text-align: justify;
     font-size: .8em;
     line-height: normal;
-    margin: 0px 100px;
-    padding: 5px;
-    border: solid #413F3F 1.em;
 }
 
 .detail-services {
     font-size: .8em;
     display: inline;
-    margin: 10px;  
 }
 
 .detail-total {
     font-size: 1.2em;
-    margin: 7px;
 }
 
-.detail-not-include {
-    margin: 5px;
-}
-
-.detail-prereq {
-    margin: 10px
-}
 
 .detail-class {
     font-size: .8em;
     display: inline;
-    margin: 10px;
-}
+}  */
 
 
-/* Save / Unsave Buttons */
+/* Save and Unsave Buttons */
 
 .x-btn {
     float: right;
