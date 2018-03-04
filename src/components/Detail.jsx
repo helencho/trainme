@@ -95,27 +95,27 @@ class Detail extends Component {
                         <p className='detail-web'>Website: {course.website ? <a href={course.website} target='_blank'>{course.website}</a> : 'n/a'}</p>
                     </div>
                     <div>
+                        <p className='detail-duration'>Duration: {course.duration || 'N/A'} {course.duration_unit.toLowerCase() || 'N/A'} </p>
                         <p className='detail-type'>Training Type: {course.delivery_method || 'N/A'}</p>
                         <p className='detail-instructor'>Instructor Credentials: {course.instructor_credentials || 'N/A'}</p>
                         <p className='detail-class'>Max Class Size: {course.max_class_size || 'N/A'}</p>
-                        <p className='detail-class'>HRA Approved: {course.is_hra || 'N/A'}</p>
                     </div>
                 </div>
                 <hr />
                 <div className='detail-section'>
-                    <p className='detail-description'>About This Course</p>
-                    <p>{course.coursedescription || 'N/A'}</p>
+                    <p>About This Course</p>
+                    <p className='detail-description'>{course.coursedescription || 'N/A'}</p>
                 </div>
                 <hr />
                 {/* <p className='detail-schedule' >Schedule: {course.schedule || 'N/A'}</p> */}
                 <div className='detail-section'>
-                    <p className='detail-duration'>Duration: {course.duration || 'N/A'} {course.duration_unit.toLowerCase() || 'N/A'} </p>
-                    <p className='detail-placement'>Job placement is {course.job_placement_services ? 'available' : 'not available'}</p>
-                    <p className='detail-services'>Financial aid is {course.financial_aid_services ? 'offered' : 'not offered'}</p>
+                    <p className='detail-class'>HRA Approved: {course.is_hra || 'N/A'}</p>
+                    <p className='detail-placement'>Job Placement: {course.job_placement_services ? 'Available' : 'Not available'}</p>
+                    <p className='detail-services'>Financial Aid: {course.financial_aid_services ? 'Offered' : 'Not offered'}</p>
                 </div>
                 <hr />
                 <div className='detail-section'>
-                    <p className='detail-total'>Cost Total: ${course.cost_total || 'N/A'}</p>
+                    <p className='detail-total'>Costs: ${course.cost_total || 'N/A'}</p>
                     <p className='detail-includes'>Cost Includes: {course.cost_includes}</p>
                     {/* <p className='detail-not-include'>Cost Does Not Include: {course.cost_does_not_include || 'N/A'}</p> */}
                     <p className='detail-prereq'>Prerequisites: {course.prerequisites || 'N/A'}</p>

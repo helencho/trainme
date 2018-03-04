@@ -16,7 +16,13 @@
     justify-content: space-between;
 }
 
-
+.detail-section-column div:last-child {
+    margin-right: 16%;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+}
 
 .detail-container p {
     margin: 10px 20px;
@@ -33,6 +39,7 @@ a:link {
     text-decoration: none;
 }
 
+a:visited,
 a:hover {
     color: #1E7E2A
 } 
@@ -42,16 +49,16 @@ hr {
     padding: .03em;
 }
 
-/* .detail-name {
-    font-size: 1.0em;
+.detail-description {
+    text-align: justify;
 }
 
-.detail-phone {
+/* .detail-phone {
     font-size: .8em;
     margin-right: 10px;
-}
+} */
 
-.detail-web {
+/*.detail-web {
     color: #1d2266;
 }
 
@@ -88,7 +95,8 @@ button {
     border: none;
     width: 152px;
     padding: 12px 20px;
-    margin: 3%;
+    margin: 3% auto;
+    display: flex;
     background-color: rgb(216, 215, 215);
     border: 1px solid rgb(216, 215, 215);
     font-size: 16px;
@@ -102,4 +110,10 @@ button {
 
 button:hover {
     border: 1px solid rgb(185, 185, 185);
+}
+
+@media screen and (max-width: 932px) {
+    .detail-section-column div:last-child {
+        margin-right: 0;
+    }
 }
