@@ -13,14 +13,23 @@ h1 {
     font-size: 75px;
 }
 
+.home-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
 .home-search-container form {
     display: flex;
     flex-direction: column;
     float: center;
     width: 550px;
-    height: 450px;
+    /* height: 450px; */
     margin: auto;
     position: relative;
+    /* background-color: red; */
+    transition: 0.3s all;
 }
 
 .home-search-container input[type="text"],
@@ -31,10 +40,10 @@ h1 {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    font-size: 20px; 
+    font-size: 20px;
     border: 1px solid #1D2266;
     border-radius: 2px;
-    transition: 0.2s all;
+    transition: 0.3s all;
 }
 
 /* .home-search-container input[type="submit"] {
@@ -73,4 +82,22 @@ h1 {
 .home-search-container input[type="submit"]:hover {
     background-color: #1D2266;
     color: white;
+}
+
+@media screen and (max-width: 620px) {
+    .home-search-container form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-search-container form {
+        width: 90%;
+    }
+
+    .home-search-container input[type="text"],
+    .home-search-container input[type="submit"],
+    .home-search-container input[type="text"]::placeholder {
+        font-size: 16px;
+    }
 }
