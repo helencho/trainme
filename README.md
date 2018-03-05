@@ -45,6 +45,9 @@ Open http://localhost:3000/ to view the app in a browser.
 * [Gerson](https://github.com/Acostill) 
 * [Thomas](https://github.com/tek2master) 
 * [Janette](https://github.com/ninja-nette)
+
+
+## Acknowledgments 
 * Our mentor, [Kenny](https://github.com/kenyo)
 
 
