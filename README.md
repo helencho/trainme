@@ -16,11 +16,6 @@ Browse through the courses available. Click on a course to get a detailed descri
 ![Results](./public/results.gif)
 
 
-Look through your saved courses. 
-
-![Bookmark](./public/bookmark.gif)
-
-
 ## Getting Started
 
 Follow these instructions to get a copy of the fullstack app running on local for development and testing purposes.
