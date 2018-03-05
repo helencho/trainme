@@ -81,12 +81,13 @@ class Detail extends Component {
                     <i class="fas fa-times" onClick={this.props.handleBack}></i>
                 </span>
 
-                <div className='detail-section detail-section-column'>
+                <div className='detail-section detail-section-column-bottom'>
                     <div>
                         <h2>{course.course_name || 'N/A'}</h2>
                         <p className='detail-name'>{course.organization_name || 'N/A'}</p>
                         <p className='detail-address'>{course.address1 || 'N/A'} {course.city || 'N/A'} {course.zip_code || 'N/A'} {course.borough || 'N/A'}</p>
                     </div>
+                    {/* <hr className='hr-hidden'/> */}
                     <div>
                         <p className='detail-contact'>Contact: {course.contact_firstname || 'N/A'} {course.contact_lastname || 'N/A'}</p>
                         <p className='detail-phone'>Phone: {course.phone1 || 'N/A'}</p>
@@ -101,13 +102,14 @@ class Detail extends Component {
                 </div>
                 <hr />
                 {/* <p className='detail-schedule' >Schedule: {course.schedule || 'N/A'}</p> */}
-                <div className='detail-section detail-section-column'>
+                <div className='detail-section detail-section-column-top'>
                     <div>
                         <p className='detail-duration'>Duration: {course.duration || 'N/A'} {course.duration_unit.toLowerCase() || 'N/A'} </p>
                         <p className='detail-type'>Training Type: {course.delivery_method || 'N/A'}</p>
                         <p className='detail-instructor'>Instructor Credentials: {course.instructor_credentials || 'N/A'}</p>
                         <p className='detail-class'>Max Class Size: {course.max_class_size || 'N/A'}</p>
                     </div>
+                    {/* <hr className='hr-hidden'/> */}
                     <div>
                         <p className='detail-class'>HRA Approved: {course.is_hra || 'N/A'}</p>
                         <p className='detail-placement'>Job Placement: {course.job_placement_services ? 'Available' : 'Not available'}</p>

@@ -52,8 +52,13 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 632px) {
+    .navbar {
+        margin-bottom: 0px;
+    }
+}
 
+@media screen and (max-width: 480px) {
     .navbar {
         height: 60px;
     }
