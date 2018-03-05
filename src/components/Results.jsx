@@ -83,7 +83,7 @@ class Results extends Component {
             || course.course_name && course.course_name.toLowerCase().includes(keyword)
             || course.keywords && course.keywords.toLowerCase().includes(keyword))
         .filter(result => result.borough ? result.borough.toLowerCase().includes(borough.toLowerCase()): result)
-        // .filter(({ borough }) => _.includes(borough.toLowerCase(), borough.toLowerCase()))
+        // .filter(({ borough }) => _.includes(borough.toLowerCase(), borough.toLowerCase())) // Didn't work correctly. Need to look at again!
         .filter(result => hra ? result.is_hra && result.is_hra.toLowerCase() === 'yes' : result)
         .filter(result => job ? result.job_placement_services : result)
         .filter(result => financial ? result.financial_aid_services : result)
@@ -107,7 +107,7 @@ class Results extends Component {
                   <input type='text' name='keyword' placeholder='graphic design' value={keyword} onChange={this.handleInput} />
                   <input type='text' name='borough' placeholder='Queens' value={borough} onChange={this.handleInput} />
                 </form>
-                <form>
+                <form className='checkbox-container'>
                   <input type='checkbox' name='hra' checked={hra} onChange={this.handleCheckbox} />HRA Approved
                   <input type='checkbox' name='job' checked={job} onChange={this.handleCheckbox} />Job Placement
                   <input type='checkbox' name='financial' checked={financial} onChange={this.handleCheckbox} />Financial Services
