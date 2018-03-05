@@ -35,7 +35,7 @@ Open http://localhost:3000/ to view the app in a browser.
 
 
 ## Built With
-* NYC Open Data: [Courses/Training Provider Listing](https://data.cityofnewyork.us/Business/Courses-Training-Provider-Listing/fgq8-am2v) - Listing of vocational training courses eligible for Individual Training Grants 
+* [Courses/Training Provider Listing API](https://data.cityofnewyork.us/Business/Courses-Training-Provider-Listing/fgq8-am2v) - Listing of vocational training courses eligible for Individual Training Grants 
 * [React](https://reactjs.org/) - JavaScript library 
 * CSS/HTML 
 
