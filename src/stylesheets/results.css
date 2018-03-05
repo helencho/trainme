@@ -5,7 +5,8 @@
 /*          Results search bar          */
 /*--------------------------------------*/
 
-.results-container form {
+.results-container form,
+form.checkbox-container {
     background-color: white;
     width: 634px;
     padding: 16px 0;
@@ -23,6 +24,10 @@
     font-family: 'Actor', sans-serif;
     /* flex-grow: 1; */
     width: 45%;
+}
+
+form.checkbox-container {
+    font-size: 14px;
 }
 
 .results-container input[type='text']:focus {
@@ -105,8 +110,15 @@
         flex-direction: column;
     }
 
+    form.checkbox-container {
+        display: flex;
+        flex-direction: row;
+    }
+
     .results-container input[type='text'] {
         width: 95%;
         margin-bottom: 3%;
     }
+
+   
 }
