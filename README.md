@@ -2,7 +2,7 @@
 
 Connecting individuals looking to start a new career with vocational training resources. 
 
-![Home](./public/main-screenly.png) 
+![Home](./public/main-screely-2.png) 
 
 Our app is deployed here - [trainme.netlify.com](https://trainme.netlify.com/)
 
